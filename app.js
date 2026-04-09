@@ -1,5 +1,21 @@
-const lodash = require('lodash');
+const { resolve } = require('dns');
+const fs = require('fs');
 
-const item = [1,[2,[3,[4]]]];
+const getText = (path)=>{
+    // Create a promise to fetch the data using readFile
+    const promise = new Promise((resolve,reject)=>{
+        fs.readFile(path,'utf8',(err,data)=>{
+            if(err){
+                reject(err);
+            }else{
+                resolve(data);
+            }
 
-console.log(lodash.flattenDeep(item));
+        })
+    })
+    // return the promise 
+    return promise;
+};
+
+// getText returns a promise, thus handle using .then().catch().finally()
+getText('./first.txt').then((resolve)=>{console.log(resolve)}).catch((error)=>{console.log(error)})
