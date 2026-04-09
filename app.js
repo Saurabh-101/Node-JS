@@ -1,4 +1,3 @@
-const { resolve } = require('dns');
 const fs = require('fs');
 
 const getText = (path)=>{
@@ -18,4 +17,20 @@ const getText = (path)=>{
 };
 
 // getText returns a promise, thus handle using .then().catch().finally()
-getText('./first.txt').then((resolve)=>{console.log(resolve)}).catch((error)=>{console.log(error)})
+// getText('./first.txt').then((resolve)=>{console.log(resolve)}).catch((error)=>{console.log(error)})
+
+const start = async()=>{
+
+    try{
+        const first = await getText('./first.txt');
+        const second = await getText('./second.txt');
+    
+        console.log(first,second);
+
+    }catch(err){
+        console.log(err);
+    }
+
+}
+// call the start function
+start();
