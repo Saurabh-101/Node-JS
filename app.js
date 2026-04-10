@@ -1,12 +1,7 @@
-const http = require('http');
+const {writeFileSync} = require('fs');
 
-const server = http.createServer();
+for(let i=0;i<10000;i++){
 
-// server has .on() method that listed for the event
-// .on() listen for the 'request' event 
-// Class http.Server has the 'request' event
-server.on('request',(req,res)=>{
-    res.end('Hello World');
-})
+    writeFileSync('./big-file.txt',`Hello World ${i}\n`,{flag:'a'});
 
-server.listen(5000)
+}
