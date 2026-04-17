@@ -1,5 +1,5 @@
 const express = require('express');
-
+const path = require('path');
 const app = express();
 
 // app.get() -> url with get method
@@ -12,16 +12,13 @@ const app = express();
 
 // app.all() -> handle all the http methods
 
+// setup static and middleware - a file tat server will keep static for all urls
+app.use(express.static('./public'))
+
 app.get('/',(req,res)=>{
+    
+    res.sendFile(path.resolve(__dirname,'./bike-app/index.html'));
 
-    res.send('Hello User, Welcome to home page.');
-
-});
-
-app.get('/about',(req,res)=>{
-
-    res.send('Hello User, Welcome to about page.');
-
-});
+})
 
 app.listen(5000,()=>{console.log(`Server listening to port 5000`)});
