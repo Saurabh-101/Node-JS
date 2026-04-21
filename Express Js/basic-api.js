@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 
 
+const {companySites} = require('./data');
+
 app.get('/test-api',(req,res)=>{
 
-    res.json([{"name":"John","age":"34","department":"IT Help Desk"},{"name":"Able","age":"23","department":"Developer"}]);
+    res.json(companySites);
 
 })
 
