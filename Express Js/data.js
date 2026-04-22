@@ -1,5 +1,6 @@
 const companySites = [
   {
+    id: 1,
     name: "Head Office",
     location: "New Delhi, India",
     department: "Administration",
@@ -7,6 +8,7 @@ const companySites = [
     description: "The central headquarters responsible for overseeing company-wide strategy, finance, human resources, and executive decision-making. This office coordinates operations across all regional branches and ensures the brand vision and long-term goals are aligned."
   },
   {
+    id: 2,
     name: "Manufacturing Unit 1",
     location: "Pune, India",
     department: "Production",
@@ -14,6 +16,7 @@ const companySites = [
     description: "A large-scale production facility where high-performance bikes are designed, assembled, and tested. Equipped with modern machinery and quality control systems, this unit ensures efficiency, safety, and consistency in manufacturing."
   },
   {
+    id: 3,
     name: "Research Center",
     location: "Bangalore, India",
     department: "R&D",
@@ -21,6 +24,7 @@ const companySites = [
     description: "Dedicated to innovation and future technologies, this center focuses on improving bike performance, fuel efficiency, and design. Engineers and designers collaborate here to develop prototypes and experiment with cutting-edge solutions."
   },
   {
+    id: 4,
     name: "Sales Office North",
     location: "Chandigarh, India",
     department: "Sales",
@@ -28,6 +32,7 @@ const companySites = [
     description: "Manages regional sales operations, dealer networks, and customer engagement across North India. This office plays a key role in market expansion, promotional campaigns, and maintaining strong client relationships."
   },
   {
+    id: 5,
     name: "Service Center",
     location: "Mumbai, India",
     department: "Customer Support",
