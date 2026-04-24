@@ -38,8 +38,38 @@ app.get('/test-api/:productId/reviews/:reviewId',(req,res)=>{
 
 app.get('/test-api/v1/query',(req,res)=>{
 
-    console.log(req.query);
-    res.send("testing the query string passed in URL, please check the console.");
+    // console.log(req.query);
+    // res.send("testing the query string passed in URL, please check the console.");
+
+    const {search, limit} = req.query; // getting the query parameters search and limit
+
+    let filteredSites = [...companySites];
+
+    if(search){
+        //if search parameted is given in url, search the sites name starting with the search parameter's value
+        filteredSites = filteredSites.filter((site)=>{
+            return site.name.toLocaleLowerCase().startsWith(search);
+        })
+    }
+
+    if(limit){
+        //if limit is given in the url as query parameter, limit the number of records till the number
+        filteredSites = filteredSites.slice(0,Number(limit));
+    }
+
+    // if(filteredSites.length<1){
+    //     // return res.status(200).send("No sites matched the search");
+    //     return res.status(200).json({
+    //         success: true,
+    //         data: filteredSites
+    //     })
+    // }
+
+    // return res.status(200).json(filteredSites);
+    return res.status(200).json({
+            success: true,
+            data: filteredSites
+        })
 
 })
 
