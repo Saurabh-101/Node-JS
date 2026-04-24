@@ -36,6 +36,13 @@ app.get('/test-api/:productId/reviews/:reviewId',(req,res)=>{
 
 })
 
+app.get('/test-api/v1/query',(req,res)=>{
+
+    console.log(req.query);
+    res.send("testing the query string passed in URL, please check the console.");
+
+})
+
 
 app.listen(5000,()=>{
     console.log(`Server listening to PORT 5000`);
