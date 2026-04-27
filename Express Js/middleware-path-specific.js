@@ -11,6 +11,9 @@ const logger = require('./Middlewares/logger');
 
 app.use('/api',logger); //if path specified, middleware will execute for urls starting with this path
 
+// also order matters for the middlewares, if executed after a app.get(), middleware will not be executed for that url
+
+
 app.get('/',(req,res)=>{
     res.send('Home Page');
 })
