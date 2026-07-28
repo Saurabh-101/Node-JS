@@ -1,4 +1,5 @@
 const express = require('express');
+const {companySites} = require('./data')
 const app = express();
 
 
@@ -16,6 +17,28 @@ app.post('/api/people',(req,res)=>{
 
 })
 
+app.put('/api/people/:id',(req,res)=>{
+
+    const id = req.params.id;
+    const { desc } = req.body;
+    const company = companySites.find((companySite)=> companySite.id == id);
+
+    if(!company){
+        return res.status(404).json({success:false,msg:`Company with id ${id} not found`});
+    }
+
+    const newCompany = companySites.map((companySite)=>{
+        if(companySite.id==id){
+            companySite.description = desc;
+        }
+        return companySite;
+    })
+
+    return res.status(200).json({success:true,companyDetails:newCompany});
+
+
+})
+
 app.post('/login',(req,res)=>{
     console.log(req.body);
     const {name} = req.body;
@@ -28,7 +51,7 @@ app.post('/login',(req,res)=>{
 app.get('/',(req,res)=>{
     res.send('Home Page');
 })
-
+app
 app.listen(5000,()=>{
     console.log(`Server listening to PORT 5000`);
 })      
