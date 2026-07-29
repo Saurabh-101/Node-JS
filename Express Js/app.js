@@ -1,24 +1,14 @@
 const express = require('express');
 const app = express();
 const api = require('./routes/api');
+const login = require('./routes/auth');
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
 app.use('/api',api);
 
-app.post('/login',(req,res)=>{
-    console.log(req.body);
-    const {name} = req.body;
-    if(name){
-        res.status(200).send(`Hi ${name}, welcome to the authorized page.`);
-    }
-    res.status(401).send('Unauthorised page.');
-
-})
-app.get('/',(req,res)=>{
-    res.send('Home Page');
-})
+app.use('/',login);
 
 
 
