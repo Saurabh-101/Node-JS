@@ -1,4 +1,4 @@
-const {companySites} = require('../data'); 
+const {companySites} = require('../data');
 const getPeople = (req,res)=>{
 
     const id = req.params.id;
