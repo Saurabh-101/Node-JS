@@ -6,9 +6,9 @@ router.post('/login',(req,res)=>{
 
     const {name} = req.body;
     if(name){
-        res.status(200).send(`Hi ${name}, welcome to the authorized page.`);
+        return res.status(200).send(`Hi ${name}, welcome to the authorized page.`);
     }
-    res.status(401).send('Unauthorised page.');
+    return res.status(401).send('Unauthorised page.');
 
 })
 router.get('/',(req,res)=>{
